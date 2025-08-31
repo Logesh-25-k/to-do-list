@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+    <title>www.todolist</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <center>
+        <div class="one">
+            <h1>TASKTRACK</h1>
+            <h3>A Smart To - do List</h3>
+            <p>
+            <h2>🌟 Great things happen when you set a deadline! Choose the day you’ll complete this task.
+                <input type="date" id="deadline"></h2>
+            </p>
+        </div>
+    </center>
+    <div class="two">
+        <center><br>
+            <input id="input" placeholder="📝Add your task here..">
+            <button onclick="add()">Add</button>
+            <ul id="list-container">
+                <li>
+                </li>
+            </ul>
+        </center>
+    </div>
+
+    <script>
+        //selecting ul
+        var ul = document.getElementById("list-container")
+        var input = document.getElementById("input")
+        var deadlineInput = document.getElementById("deadline");
+        let tasks = {};
+        function add() {
+            let date = deadlineInput.value;
+            if (!date) {
+                alert("⚠️ Please choose a date before adding a task!");
+                return;
+            }
+
+            let taskText = input.value.trim();
+            if (taskText === "") return;
+
+            if (!tasks[date]) tasks[date] = [];
+
+            var listitem = document.createElement("li")
+            listitem.innerHTML = input.value + "<button onclick='deleteItem(event, \"" + date + "\")'>Completed</button>"
+            ul.append(listitem)
+            tasks[date].push({ text: taskText, completed: false });
+
+            input.value = "";
+            input.focus();
+        }
+
+        function deleteItem(event, date) {
+            let taskText = event.target.parentElement.innerText.replace("Completed", "").trim();
+            let task = tasks[date].find(t => t.text === taskText);
+            if (task) task.completed = true; event.target.parentElement.remove()
+            alert("✅ Task completed successfully!")
+            if (tasks[date].every(t => t.completed)) {
+                reward();
+            }
+        }
+        function reward() {
+            alert("🎉 Congratulations! You completed all your tasks for the day! 🏆");
+            document.body.style.backgroundColor = "#d4edda";
+        }
+
+
+    </script>
+</body>

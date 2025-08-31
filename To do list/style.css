@@ -1,0 +1,51 @@
+*{
+    margin:0px;
+    padding:0px;
+    background-image: url("106584-blue-and-white-abstract.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+.one,.two{
+    width:60%;
+    margin: 50px;
+    padding: 20px;
+    background: rgba(225,225,225,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0.8px 20px rgba(0,0,0,0.2);
+    text-align: center;}
+.one{
+    h1{
+        color:rgb(44, 104, 216);
+    }
+    h3{
+        color:rgb(61, 120, 120);
+    }
+    h2{
+     color:chocolate;
+     padding: 2px;
+     margin:20px;
+     border: 20px;
+     border-width: 3px;
+     border-style: solid;  
+     border-color: goldenrod;
+    
+    }
+}
+.two{
+    margin-left: 350px;
+    text-align: center;
+    width: 800px;
+    background-color: rgb(180, 242, 254);
+    border-width:3px;
+    border-style: solid;
+    border-color: darkseagreen;
+    justify-content: space-around;
+    
+    input{
+        background-color: rgb(173, 244, 247);
+    }
+    
+}
